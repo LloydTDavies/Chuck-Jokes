@@ -23,6 +23,8 @@ jobs:
           node-version: 18.x
       - name: install
         run: npm ci
+      - run: npm i -g @angular/cli
+
 
   build:
     needs: install
