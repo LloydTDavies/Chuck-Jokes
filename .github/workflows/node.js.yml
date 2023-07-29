@@ -15,26 +15,29 @@ jobs:
   install:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
         with:
           node-version: 18.x
-      - run: npm ci
+      - name: install
+        run: npm ci
 
   build:
-    runs-on: ubuntu-latest
     needs: install
+    runs-on: ubuntu-latest
     steps:
       - run: npm run build:ci
 
   test:
-    runs-on: ubuntu-latest
     needs: install
+    runs-on: ubuntu-latest
     steps:
       - run: npm run test
   
   lint:
-    runs-on: ubuntu-latest
     needs: install
+    runs-on: ubuntu-latest
     steps:
       - run: npm run lint
