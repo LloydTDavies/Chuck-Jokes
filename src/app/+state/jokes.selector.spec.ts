@@ -1,5 +1,10 @@
 import { State } from './jokes.reducer';
-import { selectFavorites, selectFeature, selectJokes } from './jokes.selector';
+import {
+  selectFavorites,
+  selectFeature,
+  selectJokes,
+  selectLoading,
+} from './jokes.selector';
 
 describe('Jokes selectors', () => {
   const initialState: State = {
@@ -30,6 +35,14 @@ describe('Jokes selectors', () => {
 
       expect(result.length).toEqual(1);
       expect(result[0].id).toEqual('joke-2');
+    });
+  });
+
+  describe('selectLoading', () => {
+    it('Should return an array of favorite jokes', () => {
+      const result = selectLoading.projector(initialState);
+
+      expect(result).toBeFalsy();
     });
   });
 });

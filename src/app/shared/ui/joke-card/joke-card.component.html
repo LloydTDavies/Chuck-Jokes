@@ -1,9 +1,9 @@
-<div class="card" style="width: 20rem">
+<div class="card mt-2">
   <div class="card-body">
     <p id="joke-text" class="card-text">
       {{ joke.value }}
     </p>
-    <button class="btn btn-primary" (click)="favorite.emit(joke)">
+    <button class="btn btn-secondary" (click)="favorite.emit(joke)">
       <span class="star glyphicon glyphicon-star-empty"></span>
       {{ showUnfavorite ? 'Unfavorite' : 'Favorite' }}
     </button>

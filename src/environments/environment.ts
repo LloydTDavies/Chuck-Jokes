@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  CHUCK_JOKES_KEY: 'CHUCK_JOKES_FAVS',
 };
 
 /*
