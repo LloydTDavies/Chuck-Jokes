@@ -1,1 +1,6 @@
-<p>favorites works!</p>
+<h1>Chuck favorites</h1>
+
+<app-joke-card-list
+  [jokes]="(jokes$ | async) || []"
+  [showUnfavorite]="true"
+  (favorite)="onUnfavorite($event)"></app-joke-card-list>
