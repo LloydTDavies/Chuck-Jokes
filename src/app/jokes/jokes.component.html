@@ -1,5 +1,5 @@
-<p>jokes works!</p>
+<h1>Chuck Jokes</h1>
 
-<ng-container *ngIf="jokes$ | async as joke">
-  <app-joke-card [joke]="joke"></app-joke-card>
-</ng-container>
+<app-joke-card-list
+  [jokes]="(jokes$ | async) || []"
+  (favorite)="onFavorite($event)"></app-joke-card-list>

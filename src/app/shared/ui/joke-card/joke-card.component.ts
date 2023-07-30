@@ -16,4 +16,5 @@ import { Joke } from '../../models/joke';
 export class JokeCardComponent {
   @Output() favorite = new EventEmitter<Joke>();
   @Input() joke!: Joke;
+  @Input() showUnfavorite = false;
 }
