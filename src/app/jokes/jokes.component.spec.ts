@@ -1,22 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClient } from '@angular/common/http';
 import { JokesComponent } from './jokes.component';
+import * as angularCore from '@angular/core';
+import { of } from 'rxjs';
 
 describe('JokesComponent', () => {
-  let component: JokesComponent;
-  let fixture: ComponentFixture<JokesComponent>;
+  function createComponent() {
+    const injectSpy = jest.spyOn(angularCore, 'inject');
+    injectSpy.mockImplementation(providerToken => {
+      if (providerToken === HttpClient) {
+        return {
+          get: jest.fn().mockReturnValue(of({})),
+        };
+      }
+      return undefined;
+    });
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [JokesComponent],
-    }).compileComponents();
+    return new JokesComponent();
+  }
 
-    fixture = TestBed.createComponent(JokesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
+  it('should create component', () => {
+    const component = createComponent();
     expect(component).toBeTruthy();
   });
 });

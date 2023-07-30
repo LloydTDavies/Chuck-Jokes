@@ -1,1 +1,5 @@
 <p>jokes works!</p>
+
+<ng-container *ngIf="jokes$ | async as joke">
+  <app-joke-card [joke]="joke"></app-joke-card>
+</ng-container>
