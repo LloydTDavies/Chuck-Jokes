@@ -1,6 +1,12 @@
-<h1>Chuck favorites</h1>
+<div class="conatiner mt-2 text-center">
+  <div class="row">
+    <div class="col">
+      <h1>Chuck favorites</h1>
 
-<app-joke-card-list
-  [jokes]="(jokes$ | async) || []"
-  [showUnfavorite]="true"
-  (favorite)="onUnfavorite($event)"></app-joke-card-list>
+      <app-joke-card-list
+        [jokes]="(jokes$ | async) || []"
+        [showUnfavorite]="true"
+        (favorite)="onUnfavorite($event)"></app-joke-card-list>
+    </div>
+  </div>
+</div>

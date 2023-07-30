@@ -1,10 +1,21 @@
 <ng-container *ngIf="jokes.length > 0; else noJokes">
-  <app-joke-card
-    *ngFor="let joke of jokes"
-    [joke]="joke"
-    [showUnfavorite]="showUnfavorite"
-    (favorite)="favorite.emit(joke)"></app-joke-card>
+  <div role="list">
+    <app-joke-card
+      class="col"
+      *ngFor="let joke of jokes"
+      [joke]="joke"
+      [showUnfavorite]="showUnfavorite"
+      (favorite)="favorite.emit(joke)"></app-joke-card>
+  </div>
 </ng-container>
 <ng-template #noJokes>
-  <div>{{ showUnfavorite ? 'No favorites found' : 'No Jokes' }}</div>
+  <div class="conatiner">
+    <p class="mt-2">
+      {{
+        showUnfavorite
+          ? 'No favorites found'
+          : 'No Jokes found, please click load jokes to get started.'
+      }}
+    </p>
+  </div>
 </ng-template>
