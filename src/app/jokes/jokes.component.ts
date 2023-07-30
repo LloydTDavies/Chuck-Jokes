@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Joke } from '../shared/models/joke';
 
 @Component({
   selector: 'app-jokes',
@@ -6,5 +8,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class JokesComponent {
-  constructor() {}
+  private readonly http = inject(HttpClient);
+  readonly jokes$ = this.http.get<Joke>(
+    'https://api.chucknorris.io/jokes/random'
+  );
 }
