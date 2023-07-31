@@ -20,3 +20,8 @@ jobs:
       - run: npm run build:ci
       - run: npm run test
       - run: npm run lint
+      - name: Give status check
+        uses: actions/github-check@v2
+        with:
+          status: success
+          message: "Build successful"
