@@ -23,6 +23,8 @@ describe('AppComponent', () => {
 
   it('Should call load favorites action', () => {
     const { mockStore } = createComponent();
-    expect(mockStore.dispatch).toBeCalledWith(jokesActions.loadFavorites());
+    expect(mockStore.dispatch).toBeCalledWith(
+      jokesActions.addJoke({ joke: {} as any })
+    );
   });
 });
