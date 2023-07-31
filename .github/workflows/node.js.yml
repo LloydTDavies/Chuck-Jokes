@@ -20,6 +20,8 @@ jobs:
       - run: npm run build:ci
       - run: npm run test
       - run: npm run lint
+      - name: Check git status
+        run: git status
       - name: Give status check
         uses: actions/github-check@v2
         with:

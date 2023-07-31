@@ -30,6 +30,8 @@ jobs:
       with:
           name: production.zip
           path: dist/production.zip
+    - name: Check git status
+      run: git status
     - name: Give status check
       uses: actions/github-check@v2
       with:
