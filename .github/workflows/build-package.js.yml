@@ -30,3 +30,8 @@ jobs:
       run: |
         cd dist/
         zip -r production.zip .
+    - name: Deploy production build
+      uses: actions/upload-artifact@v2
+      with:
+        name: production.zip
+        path: dist/production.zip
