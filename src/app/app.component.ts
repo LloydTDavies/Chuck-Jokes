@@ -11,6 +11,7 @@ export class AppComponent {
   private readonly store = inject(Store);
 
   constructor() {
+    debugger;
     this.store.dispatch(jokesActions.loadFavorites());
   }
 }
