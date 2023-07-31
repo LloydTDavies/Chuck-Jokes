@@ -17,13 +17,9 @@ jobs:
         with:
           node-version: 18.x
       - run: npm ci
+        name: Build
       - run: npm run build:ci
-      - run: npm run test
-      - run: npm run lint
-      - name: Check git status
-        run: git status
-      - name: Give status check
-        uses: actions/github-check@v2
-        with:
-          status: success
-          message: "Build successful"
+      - name: Test
+        run: npm run test
+      - name: Lint
+        run: npm run lint
