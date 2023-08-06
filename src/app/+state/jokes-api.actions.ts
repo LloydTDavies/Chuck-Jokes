@@ -5,7 +5,7 @@ export const jokesApiActions = createActionGroup({
   source: 'Jokes Api',
   events: {
     'Get random joke': emptyProps(),
-    'Get random joke success': props<{ joke: Joke }>(),
+    'Update jokes': props<{ jokes: Joke[] }>(),
     'Get random joke error': props<{ error: any }>(),
   },
 });

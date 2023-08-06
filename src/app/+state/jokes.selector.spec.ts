@@ -1,10 +1,5 @@
 import { State } from './jokes.reducer';
-import {
-  selectFavorites,
-  selectFeature,
-  selectJokes,
-  selectLoading,
-} from './jokes.selector';
+import { selectFeature, selectJokes, selectLoading } from './jokes.selector';
 
 describe('Jokes selectors', () => {
   const initialState: State = {
@@ -13,7 +8,6 @@ describe('Jokes selectors', () => {
       { id: 'joke-2', value: 'blahh-1' } as any,
     ],
     loading: false,
-    favorites: [{ id: 'joke-2', value: 'blahh-1' } as any],
   };
   describe('selectFeature', () => {
     it('should return state', () => {
@@ -27,14 +21,6 @@ describe('Jokes selectors', () => {
 
       expect(result.length).toEqual(2);
       expect(result[1].id).toEqual('joke-2');
-    });
-  });
-  describe('selectFavorites', () => {
-    it('Should return an array of favorite jokes', () => {
-      const result = selectFavorites.projector(initialState);
-
-      expect(result.length).toEqual(1);
-      expect(result[0].id).toEqual('joke-2');
     });
   });
 

@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JokeCardComponent } from './joke-card.component';
-import { By } from '@angular/platform-browser';
 import { Joke } from '../../models/joke';
+import { JokeCardComponent } from './joke-card.component';
 
 describe('JokeCardComponent', () => {
   let component: JokeCardComponent;
