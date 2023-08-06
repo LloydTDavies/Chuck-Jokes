@@ -42,7 +42,7 @@ describe('JokesComponent', () => {
   describe('loadInitalJokes$$', () => {
     it('should call getRandomJoke 10 times', () => {
       const { component, mockStore } = createComponent();
-      component.loadJokes();
+      component.ngOnInit();
       expect(mockStore.dispatch).toBeCalledWith(
         jokesApiActions.getRandomJoke()
       );
@@ -50,14 +50,34 @@ describe('JokesComponent', () => {
     });
   });
 
+  describe('toggleJokesInterval', () => {
+    it('should set interval if not already set', () => {
+      const { component } = createComponent();
+      component.toggleJokesInterval();
+      expect(component.intervalRunning).toBeTruthy();
+    });
+
+    it('should remove interval if already set', () => {
+      const { component } = createComponent();
+      // Set interval
+      component.toggleJokesInterval();
+      // Unset interval
+      component.toggleJokesInterval();
+
+      expect(component.intervalRunning).toBeFalsy();
+    });
+  });
+
   describe('onDestroy', () => {
-    it('should call remove all jokes action', () => {
-      const { component, mockStore } = createComponent();
+    it('should destroy interval subscription if set', () => {
+      const { component } = createComponent();
+
+      const spy = jest.spyOn(component as any, 'stopJokesInterval');
+
+      component.toggleJokesInterval();
       component.ngOnDestroy();
 
-      expect(mockStore.dispatch).toHaveBeenCalledWith(
-        jokesActions.removeAllJokes()
-      );
+      expect(spy).toHaveBeenCalled();
     });
   });
 });
