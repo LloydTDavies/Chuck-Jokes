@@ -6,10 +6,6 @@ export const selectJokes = createSelector(
   selectFeature,
   (state: State) => state.jokes
 );
-export const selectFavorites = createSelector(
-  selectFeature,
-  (state: State) => state.favorites
-);
 
 export const selectLoading = createSelector(
   selectFeature,

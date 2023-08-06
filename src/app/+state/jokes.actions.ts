@@ -7,9 +7,7 @@ export const jokesActions = createActionGroup({
     'Add Joke': props<{ joke: Joke }>(),
     'Remove all jokes': emptyProps(),
     'Favorite Joke': props<{ joke: Joke }>(),
-    'Unfavorite Joke': props<{ joke: Joke }>(),
-    'Load Favorites': emptyProps(),
-    'Load Favorites success': props<{ jokes: Joke[] }>(),
-    'Load Favorites unavailable': emptyProps(),
+    'Favorite Joke failed': props<{ error: any }>(),
+    'Favorite jokes updated': props<{ favorites: Joke[] }>(),
   },
 });

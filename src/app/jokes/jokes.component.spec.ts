@@ -1,9 +1,8 @@
-import { Store } from '@ngrx/store';
-import { JokesComponent } from './jokes.component';
 import * as angularCore from '@angular/core';
-import { of } from 'rxjs';
-import { jokesActions } from '../+state/jokes.actions';
+import { Store } from '@ngrx/store';
 import { jokesApiActions } from '../+state/jokes-api.actions';
+import { jokesActions } from '../+state/jokes.actions';
+import { JokesComponent } from './jokes.component';
 
 describe('JokesComponent', () => {
   function createComponent() {

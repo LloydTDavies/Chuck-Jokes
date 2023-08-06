@@ -1,9 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Store } from '@ngrx/store';
 import * as angularCore from '@angular/core';
-import { of } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { favoritesActions } from '../+state/favorites.actions';
 import { FavoritesComponent } from './favorites.component';
-import { jokesActions } from '../+state/jokes.actions';
 
 describe('FavoritesComponent', () => {
   function createComponent() {
@@ -34,7 +32,7 @@ describe('FavoritesComponent', () => {
       const expected = { id: 'joke-1' } as any;
       component.onUnfavorite(expected);
       expect(mockStore.dispatch).toHaveBeenCalledWith(
-        jokesActions.unfavoriteJoke({ joke: expected })
+        favoritesActions.unfavoriteJoke({ joke: expected })
       );
     });
   });

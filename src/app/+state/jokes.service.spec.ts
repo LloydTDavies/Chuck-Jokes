@@ -1,8 +1,7 @@
-import * as angularCore from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Store } from '@ngrx/store';
-import { JokesService } from './jokes.service';
+import * as angularCore from '@angular/core';
 import { of } from 'rxjs';
+import { JokesService } from './jokes.service';
 
 describe('JokesService', () => {
   function createInstance() {

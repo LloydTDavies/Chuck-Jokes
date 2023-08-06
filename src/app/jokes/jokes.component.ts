@@ -69,5 +69,6 @@ export class JokesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.stopJokesInterval();
+    this.store.dispatch(jokesActions.removeAllJokes());
   }
 }
